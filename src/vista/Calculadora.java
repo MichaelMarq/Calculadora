@@ -1,7 +1,6 @@
 
 package vista;
 
-import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -12,12 +11,15 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+
+//Vamos a trabajar con el double nomas para evitarnos problemas
 
 
 
@@ -34,9 +36,9 @@ public class Calculadora extends JFrame{
     private JButton btnC,btnRaiz,btnDivision,btnEliminar,btnMultiplicacion,btnResta,btnSuma;
     private JButton btnIgual,btnPunto,btnSigno;
     private JLabel jlResultado,jlOperacion;
-    private String mensaje="0",signo="",aux1="0",aux2="0";
+    private String mensaje="0",signo="",aux1="0",aux2="0",signoPunto="";
     private double numero1=0,numero2=0,resultado=0;
-    private boolean pulsadoIgual = false, pulsadoMas = false;
+    private boolean pulsadoIgual = false, pulsadoMas = false, pulsadoPunto1 = false, pulsadoPunto2 = false;
     
     
     //Constructor
@@ -430,6 +432,7 @@ public class Calculadora extends JFrame{
         eventoBtnC();
         eventoSuma();
         eventoIgual();
+        eventoPunto();
     }
     
     
@@ -444,12 +447,16 @@ public class Calculadora extends JFrame{
                     
                     aux1 = "0";
                     aux2 = "0";
+                    pulsadoPunto1 = false;
+                    pulsadoPunto2 = false;
+                    signoPunto = "";
                     
                     if(pulsadoMas == true){
                         aux1 = ""+resultado;
                         aux2 += "0";
-                        mensaje = aux2;
-                        jlResultado.setText(Double.parseDouble(mensaje)+"");
+                        mensaje = aux2;          
+                        
+                        jlResultado.setText(Double.parseDouble(mensaje)+"");                 
                         pulsadoIgual = false;
                         
                     }
@@ -458,21 +465,22 @@ public class Calculadora extends JFrame{
                         pulsadoIgual = false;
                         signo = "";
                         mensaje =aux1;
-                        jlOperacion.setText("");
+                        
                         jlResultado.setText(Double.parseDouble(mensaje)+"");
+                        
                     }
                     
                 }
                 else if(signo.equals("+")){
                     aux2 += "0";
                     mensaje = aux2;
-                    jlResultado.setText(Double.parseDouble(mensaje)+"");
-                    
+                    jlResultado.setText(Double.parseDouble(mensaje)+"");           
                 }
-                else{
+                else{ 
+                    
                     aux1 += "0";
                     mensaje =aux1;
-                    jlResultado.setText(Double.parseDouble(mensaje)+"");
+                    jlResultado.setText(Double.parseDouble(mensaje)+""); 
                 }
                 
             }
@@ -491,12 +499,16 @@ public class Calculadora extends JFrame{
                     
                     aux1 = "0";
                     aux2 = "0";
+                    pulsadoPunto1 = false;
+                    pulsadoPunto2 = false;
+                    signoPunto = "";
                     
                     if(pulsadoMas == true){
                         aux1 = ""+resultado;
                         aux2 += "1";
-                        mensaje = aux2;
-                        jlResultado.setText(Double.parseDouble(mensaje)+"");
+                        mensaje = aux2;          
+                        
+                        jlResultado.setText(Double.parseDouble(mensaje)+"");                 
                         pulsadoIgual = false;
                         
                     }
@@ -505,21 +517,22 @@ public class Calculadora extends JFrame{
                         pulsadoIgual = false;
                         signo = "";
                         mensaje =aux1;
-                        jlOperacion.setText("");
+                        
                         jlResultado.setText(Double.parseDouble(mensaje)+"");
+                        
                     }
                     
                 }
                 else if(signo.equals("+")){
                     aux2 += "1";
                     mensaje = aux2;
-                    jlResultado.setText(Double.parseDouble(mensaje)+"");
-                    
+                    jlResultado.setText(Double.parseDouble(mensaje)+"");           
                 }
-                else{
+                else{ 
+                    
                     aux1 += "1";
                     mensaje =aux1;
-                    jlResultado.setText(Double.parseDouble(mensaje)+"");
+                    jlResultado.setText(Double.parseDouble(mensaje)+""); 
                 }    
             }
         };
@@ -538,12 +551,16 @@ public class Calculadora extends JFrame{
                     
                     aux1 = "0";
                     aux2 = "0";
+                    pulsadoPunto1 = false;
+                    pulsadoPunto2 = false;
+                    signoPunto = "";
                     
                     if(pulsadoMas == true){
                         aux1 = ""+resultado;
                         aux2 += "2";
-                        mensaje = aux2;
-                        jlResultado.setText(Double.parseDouble(mensaje)+"");
+                        mensaje = aux2;          
+                        
+                        jlResultado.setText(Double.parseDouble(mensaje)+"");                 
                         pulsadoIgual = false;
                         
                     }
@@ -552,21 +569,22 @@ public class Calculadora extends JFrame{
                         pulsadoIgual = false;
                         signo = "";
                         mensaje =aux1;
-                        jlOperacion.setText("");
+                        
                         jlResultado.setText(Double.parseDouble(mensaje)+"");
+                        
                     }
                     
                 }
                 else if(signo.equals("+")){
                     aux2 += "2";
                     mensaje = aux2;
-                    jlResultado.setText(Double.parseDouble(mensaje)+"");
-                    
+                    jlResultado.setText(Double.parseDouble(mensaje)+"");           
                 }
-                else{
+                else{ 
+                    
                     aux1 += "2";
                     mensaje =aux1;
-                    jlResultado.setText(Double.parseDouble(mensaje)+"");
+                    jlResultado.setText(Double.parseDouble(mensaje)+""); 
                 }
              
             }
@@ -585,12 +603,16 @@ public class Calculadora extends JFrame{
                     
                     aux1 = "0";
                     aux2 = "0";
+                    pulsadoPunto1 = false;
+                    pulsadoPunto2 = false;
+                    signoPunto = "";
                     
                     if(pulsadoMas == true){
                         aux1 = ""+resultado;
                         aux2 += "3";
-                        mensaje = aux2;
-                        jlResultado.setText(Double.parseDouble(mensaje)+"");
+                        mensaje = aux2;          
+                        
+                        jlResultado.setText(Double.parseDouble(mensaje)+"");                 
                         pulsadoIgual = false;
                         
                     }
@@ -599,21 +621,22 @@ public class Calculadora extends JFrame{
                         pulsadoIgual = false;
                         signo = "";
                         mensaje =aux1;
-                        jlOperacion.setText("");
+                        
                         jlResultado.setText(Double.parseDouble(mensaje)+"");
+                        
                     }
                     
                 }
                 else if(signo.equals("+")){
                     aux2 += "3";
                     mensaje = aux2;
-                    jlResultado.setText(Double.parseDouble(mensaje)+"");
-                    
+                    jlResultado.setText(Double.parseDouble(mensaje)+"");           
                 }
-                else{
+                else{ 
+                    
                     aux1 += "3";
                     mensaje =aux1;
-                    jlResultado.setText(Double.parseDouble(mensaje)+"");
+                    jlResultado.setText(Double.parseDouble(mensaje)+""); 
                 }
 
             }
@@ -679,12 +702,16 @@ public class Calculadora extends JFrame{
                     
                     aux1 = "0";
                     aux2 = "0";
+                    pulsadoPunto1 = false;
+                    pulsadoPunto2 = false;
+                    signoPunto = "";
                     
                     if(pulsadoMas == true){
                         aux1 = ""+resultado;
                         aux2 += "5";
-                        mensaje = aux2;
-                        jlResultado.setText(Double.parseDouble(mensaje)+"");
+                        mensaje = aux2;          
+                        
+                        jlResultado.setText(Double.parseDouble(mensaje)+"");                 
                         pulsadoIgual = false;
                         
                     }
@@ -693,21 +720,22 @@ public class Calculadora extends JFrame{
                         pulsadoIgual = false;
                         signo = "";
                         mensaje =aux1;
-                        jlOperacion.setText("");
+                        
                         jlResultado.setText(Double.parseDouble(mensaje)+"");
+                        
                     }
                     
                 }
                 else if(signo.equals("+")){
                     aux2 += "5";
                     mensaje = aux2;
-                    jlResultado.setText(Double.parseDouble(mensaje)+"");
-                    
+                    jlResultado.setText(Double.parseDouble(mensaje)+"");           
                 }
-                else{
+                else{ 
+                    
                     aux1 += "5";
                     mensaje =aux1;
-                    jlResultado.setText(Double.parseDouble(mensaje)+"");
+                    jlResultado.setText(Double.parseDouble(mensaje)+""); 
                 }
                 
             }
@@ -726,12 +754,16 @@ public class Calculadora extends JFrame{
                     
                     aux1 = "0";
                     aux2 = "0";
+                    pulsadoPunto1 = false;
+                    pulsadoPunto2 = false;
+                    signoPunto = "";
                     
                     if(pulsadoMas == true){
                         aux1 = ""+resultado;
                         aux2 += "6";
-                        mensaje = aux2;
-                        jlResultado.setText(Double.parseDouble(mensaje)+"");
+                        mensaje = aux2;          
+                        
+                        jlResultado.setText(Double.parseDouble(mensaje)+"");                 
                         pulsadoIgual = false;
                         
                     }
@@ -740,21 +772,22 @@ public class Calculadora extends JFrame{
                         pulsadoIgual = false;
                         signo = "";
                         mensaje =aux1;
-                        jlOperacion.setText("");
+                        
                         jlResultado.setText(Double.parseDouble(mensaje)+"");
+                        
                     }
                     
                 }
                 else if(signo.equals("+")){
                     aux2 += "6";
                     mensaje = aux2;
-                    jlResultado.setText(Double.parseDouble(mensaje)+"");
-                    
+                    jlResultado.setText(Double.parseDouble(mensaje)+"");           
                 }
-                else{
+                else{ 
+                    
                     aux1 += "6";
                     mensaje =aux1;
-                    jlResultado.setText(Double.parseDouble(mensaje)+"");
+                    jlResultado.setText(Double.parseDouble(mensaje)+""); 
                 }
 
             }
@@ -773,12 +806,16 @@ public class Calculadora extends JFrame{
                     
                     aux1 = "0";
                     aux2 = "0";
+                    pulsadoPunto1 = false;
+                    pulsadoPunto2 = false;
+                    signoPunto = "";
                     
                     if(pulsadoMas == true){
                         aux1 = ""+resultado;
                         aux2 += "7";
-                        mensaje = aux2;
-                        jlResultado.setText(Double.parseDouble(mensaje)+"");
+                        mensaje = aux2;          
+                        
+                        jlResultado.setText(Double.parseDouble(mensaje)+"");                 
                         pulsadoIgual = false;
                         
                     }
@@ -787,21 +824,22 @@ public class Calculadora extends JFrame{
                         pulsadoIgual = false;
                         signo = "";
                         mensaje =aux1;
-                        jlOperacion.setText("");
+                        
                         jlResultado.setText(Double.parseDouble(mensaje)+"");
+                        
                     }
                     
                 }
                 else if(signo.equals("+")){
                     aux2 += "7";
                     mensaje = aux2;
-                    jlResultado.setText(Double.parseDouble(mensaje)+"");
-                    
+                    jlResultado.setText(Double.parseDouble(mensaje)+"");           
                 }
-                else{
+                else{ 
+                    
                     aux1 += "7";
                     mensaje =aux1;
-                    jlResultado.setText(Double.parseDouble(mensaje)+"");
+                    jlResultado.setText(Double.parseDouble(mensaje)+""); 
                 }
                 
             }
@@ -820,12 +858,16 @@ public class Calculadora extends JFrame{
                     
                     aux1 = "0";
                     aux2 = "0";
+                    pulsadoPunto1 = false;
+                    pulsadoPunto2 = false;
+                    signoPunto = "";
                     
                     if(pulsadoMas == true){
                         aux1 = ""+resultado;
                         aux2 += "8";
-                        mensaje = aux2;
-                        jlResultado.setText(Double.parseDouble(mensaje)+"");
+                        mensaje = aux2;          
+                        
+                        jlResultado.setText(Double.parseDouble(mensaje)+"");                 
                         pulsadoIgual = false;
                         
                     }
@@ -834,21 +876,22 @@ public class Calculadora extends JFrame{
                         pulsadoIgual = false;
                         signo = "";
                         mensaje =aux1;
-                        jlOperacion.setText("");
+                        
                         jlResultado.setText(Double.parseDouble(mensaje)+"");
+                        
                     }
                     
                 }
                 else if(signo.equals("+")){
                     aux2 += "8";
                     mensaje = aux2;
-                    jlResultado.setText(Double.parseDouble(mensaje)+"");
-                    
+                    jlResultado.setText(Double.parseDouble(mensaje)+"");           
                 }
-                else{
+                else{ 
+                    
                     aux1 += "8";
                     mensaje =aux1;
-                    jlResultado.setText(Double.parseDouble(mensaje)+"");
+                    jlResultado.setText(Double.parseDouble(mensaje)+""); 
                 }
             }
         };
@@ -862,16 +905,22 @@ public class Calculadora extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e){
                 //  Si el signo es + significa que ya digito el primer numero
+
                 if(pulsadoIgual == true){
                     
                     aux1 = "0";
                     aux2 = "0";
+                    pulsadoPunto1 = false;
+                    pulsadoPunto2 = false;
+                    signoPunto = "";
                     
+                    //pulsadoMas = el boton + ah sido presionado
                     if(pulsadoMas == true){
                         aux1 = ""+resultado;
                         aux2 += "9";
-                        mensaje = aux2;
-                        jlResultado.setText(Double.parseDouble(mensaje)+"");
+                        mensaje = aux2;          
+                        
+                        jlResultado.setText(Double.parseDouble(mensaje)+"");               
                         pulsadoIgual = false;
                         
                     }
@@ -880,8 +929,9 @@ public class Calculadora extends JFrame{
                         pulsadoIgual = false;
                         signo = "";
                         mensaje =aux1;
-                        jlOperacion.setText("");
+                        
                         jlResultado.setText(Double.parseDouble(mensaje)+"");
+                        
                     }
                     
                 }
@@ -889,15 +939,15 @@ public class Calculadora extends JFrame{
                     aux2 += "9";
                     mensaje = aux2;
                     jlResultado.setText(Double.parseDouble(mensaje)+"");
-                    
                 }
-                else{
+                else{ 
                     aux1 += "9";
                     mensaje =aux1;
-                    jlResultado.setText(Double.parseDouble(mensaje)+"");
-                }
-               
+                    jlResultado.setText(Double.parseDouble(mensaje)+""); 
+                }  
+                    
             }
+                        
         };
         
         btn9.addActionListener(oyente);
@@ -915,13 +965,16 @@ public class Calculadora extends JFrame{
 
                 aux1 = "0";
                 aux2 = "0";
-                signo="";
+                signo = "";
+                signoPunto = "";
                 numero1=0;
                 numero2=0;
                 resultado=0;
                 mensaje = "0";
                 pulsadoIgual = false;
                 pulsadoMas = false;
+                pulsadoPunto1 = false;
+                pulsadoPunto2 = false;
                 jlResultado.setText(aux1);
                 jlOperacion.setText("");
      
@@ -941,7 +994,23 @@ public class Calculadora extends JFrame{
             public void actionPerformed(ActionEvent e){ 
                 pulsadoMas = true;
                 signo = "+";
-                jlOperacion.setText(Double.parseDouble(mensaje)+"  "+signo);
+                
+                numero1 = Double.parseDouble(aux1);
+                numero2 = Double.parseDouble(aux2);
+                resultado = numero1 + numero2;
+                if(aux2.equals("0")){
+                    jlOperacion.setText(Double.parseDouble(mensaje)+"  "+signo);
+                }
+                else{
+                    jlOperacion.setText(resultado+"  "+signo);
+                    jlResultado.setText(resultado+"");
+                    aux1 = resultado+"";
+                    aux2 = "0";
+                }
+                //jlOperacion.setText(Double.parseDouble(mensaje)+"  "+signo);
+                
+                //mensaje para la suma consecutiva
+                //jlResultado.setText(Double.parseDouble(signo));
             }
         };
         btnSuma.addActionListener(oyente);  
@@ -994,16 +1063,27 @@ public class Calculadora extends JFrame{
                     numero2 = Double.parseDouble(aux2);
                     resultado = numero1 + numero2;
                     
+
+                    if(aux1.contains(".")){
+                        jlOperacion.setText(Double.parseDouble(aux1)+" = ");
+                        jlResultado.setText(resultado+"");
+                    }
+                    else{
+                        jlOperacion.setText(Integer.parseInt(aux1)+" = ");
+                        jlResultado.setText((int)(resultado)+"");
+                    }
+                    
+                    
+                    /*
                     jlOperacion.setText(Double.parseDouble(aux1)+" = ");
                     jlResultado.setText(resultado+"");
                     
+                    */
                     aux1 = resultado+"";
                     mensaje = aux1;
                     
                     pulsadoIgual = true;
                     pulsadoMas = false;
-                    
-                    
                 }
                            
                 
@@ -1012,7 +1092,49 @@ public class Calculadora extends JFrame{
         };
         btnIgual.addActionListener(oyente);  
     
-    }    
+    }
+    
+    private void eventoPunto(){
+        ActionListener oyente = new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                if(signo.equals("+")){
+                    if(pulsadoPunto2 == false){
+                        signoPunto = ".";
+                        jlResultado.setText(Integer.parseInt(aux2)+signoPunto);
+                        aux2 += signoPunto;
+                        pulsadoPunto2 = true;
+                    }
+                    else{
+                        signoPunto = ".";
+                        jlResultado.setText(Integer.parseInt(aux2)+signoPunto);
+                        aux2 += signoPunto;
+                        pulsadoPunto2 = true;
+                    }
+                
+                }
+                else{
+                    if(pulsadoPunto1 == false){
+                        signoPunto = ".";
+                        if(pulsadoIgual == true){
+                            aux1 = "0";
+                            pulsadoIgual = false;
+                            jlResultado.setText(Integer.parseInt(aux1)+signoPunto);
+                        }
+                        else{
+                            jlResultado.setText(Integer.parseInt(aux1)+signoPunto);
+                        }
+                        
+                        aux1 += signoPunto;
+                        pulsadoPunto1 = true;
+                    }
+                    
+                }
+            }
+        };
+        
+        btnPunto.addActionListener(oyente);
+    }
 
 
     //Evento salir del item de la barra de menu
@@ -1045,10 +1167,8 @@ public class Calculadora extends JFrame{
             }
             
         };
-        
-        
+         
         jItemSalir.addMouseListener(evento);
-        
         
     }
     
